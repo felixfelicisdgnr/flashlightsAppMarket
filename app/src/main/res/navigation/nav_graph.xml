@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/coloredLightsFragment"
+        android:name="com.doganur.flashlightappsmarket.ui.coloredLights.ColoredLightsFragment"
+        android:label="fragment_colored_lights"
+        tools:layout="@layout/fragment_colored_lights" />
+
+    <fragment
+        android:id="@+id/sosAlertsFragment"
+        android:name="com.doganur.flashlightappsmarket.ui.sosalerts.SosAlertsFragment"
+        android:label="fragment_sos_alerts"
+        tools:layout="@layout/fragment_sos_alerts" />
+
+    <fragment
+        android:id="@+id/flashlightsFragment"
+        android:name="com.doganur.flashlightappsmarket.ui.flashlights.FlashlightsFragment"
+        android:label="fragment_flashlights"
+        tools:layout="@layout/fragment_flashlights" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.doganur.flashlightappsmarket.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_sosAlertsFragment"
+            app:destination="@id/sosAlertsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_flashlightsFragment"
+            app:destination="@id/flashlightsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_coloredLightsFragment"
+            app:destination="@id/coloredLightsFragment" />
+
+
+    </fragment>
+
+</navigation>

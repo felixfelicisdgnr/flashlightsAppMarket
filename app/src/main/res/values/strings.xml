@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Flashlight Apps Market</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="flashlights_categories">Flashlights Categories</string>
+    <string name="colored_lights">Colored Lights</string>
+    <string name="sos_alerts">SOS Alerts</string>
+    <string name="flashlights">Flashlights</string>
+    <string name="logout">Logout</string>
+    <string name="flashlight_apps">Flashlight Apps</string>
+    <string name="homepage">Homepage</string>
+    <string name="home_page">Home Page</string>
+    <string name="deneme">deneme</string>
+    <string name="testtestestetstetstetstetstteste">testtestestetstetstetstetstteste</string>
+    <string name="image_flashlights">Image Flashlights</string>
+    <string name="image_colored_lights">Image Colored Lights</string>
+    <string name="image_home_flashlights_categories">Image Home Flashlights Categories</string>
+    <string name="image_home_colored_lights_categories">Image Home Colored Lights Categories</string>
+    <string name="image_home_sos_alerts_categories">Image Home Sos Alerts Categories</string>
+</resources>
