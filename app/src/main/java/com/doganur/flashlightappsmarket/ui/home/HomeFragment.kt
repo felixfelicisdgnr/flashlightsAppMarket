@@ -1,9 +1,8 @@
 package com.doganur.flashlightappsmarket.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.doganur.flashlightappsmarket.R
 import com.doganur.flashlightappsmarket.common.viewBinding
@@ -13,7 +12,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
 
-    private val homeMVVM : HomeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,7 +20,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         onColoredLightsClick()
         onSosAlertsClick()
 
-        }
+    }
 
     private fun onFlashlightsClick() {
         binding.imgFlashlights.setOnClickListener {

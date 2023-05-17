@@ -1,5 +1,7 @@
 package com.doganur.flashlightappsmarket.ui.coloredLights
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -22,8 +24,23 @@ class ColoredLightsFragment : Fragment(R.layout.fragment_colored_lights) {
         coloredLightsAdapter = ColoredLightsAdapter()
         binding.rvColoredLights.adapter = coloredLightsAdapter
 
-        viewModel.observeColoredLightsLiveData().observe(viewLifecycleOwner) { coloredLights ->
-            coloredLightsAdapter.submitList(coloredLights)
+        coloredLightsAdapter.onColoredLightsProductClick = {
+
+            val intent = requireActivity().packageManager.getLaunchIntentForPackage(it)
+
+            if (intent != null) {
+                startActivity(intent)
+            } else {
+                Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("https://play.google.com/store/apps/details?id=$it")
+                    setPackage("com.android.vending")
+                    startActivity(this)
+                }
+            }
+        }
+
+        viewModel.coloredLightsLiveData.observe(viewLifecycleOwner) {
+            coloredLightsAdapter.submitList(it)
         }
 
         viewModel.getColoredLights()

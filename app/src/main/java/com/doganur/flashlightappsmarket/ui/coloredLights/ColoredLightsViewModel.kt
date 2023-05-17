@@ -12,31 +12,26 @@ import retrofit2.Response
 
 class ColoredLightsViewModel : ViewModel() {
 
-    private var coloredLightsLiveData = MutableLiveData<ColoredLights>()
+    val coloredLightsLiveData = MutableLiveData<ColoredLights>()
 
     fun getColoredLights() {
 
         RetrofitInstance.api.getColoredLights().enqueue(object : Callback<ColoredLights> {
             override fun onResponse(call: Call<ColoredLights>, response: Response<ColoredLights>) {
-                if (response.body() != null){
-                    val productColoredLights : ColoredLights? = response.body()
+                if (response.body() != null) {
+                    val productColoredLights: ColoredLights? = response.body()
                     productColoredLights?.let {
                         coloredLightsLiveData.value = it
                     }
-                    Log.d("ColorDoga","deneme ${productColoredLights}")
                 } else {
                     return
                 }
             }
 
             override fun onFailure(call: Call<ColoredLights>, t: Throwable) {
-                    Log.d("Fail Colored Lights View Model ", t.message.toString())
+                Log.d("Fail Colored Lights View Model ", t.message.toString())
             }
         })
-    }
-
-    fun observeColoredLightsLiveData() : LiveData<ColoredLights>{
-        return coloredLightsLiveData
     }
 }
 

@@ -12,19 +12,19 @@ import retrofit2.Response
 
 class FlashlightsViewModel : ViewModel() {
 
-    private var flashlightsLiveData = MutableLiveData<Flashlights>()
+    val flashlightsLiveData = MutableLiveData<Flashlights>()
 
     fun getFlashLights() {
 
         RetrofitInstance.api.getFlashlights().enqueue(object : Callback<Flashlights> {
             override fun onResponse(call: Call<Flashlights>, response: Response<Flashlights>) {
-                if (response.body() != null){
-                    val productFlashlights : Flashlights? = response.body()
+                if (response.body() != null) {
+                    val productFlashlights: Flashlights? = response.body()
                     productFlashlights?.let {
                         flashlightsLiveData.value = it
                     }
-                    Log.d("Doga","deneme ${productFlashlights}")
-                }else {
+
+                } else {
                     return
                 }
             }
@@ -35,7 +35,4 @@ class FlashlightsViewModel : ViewModel() {
         })
     }
 
-    fun observeFlashlightsLiveData():LiveData<Flashlights>{
-        return flashlightsLiveData
-    }
 }

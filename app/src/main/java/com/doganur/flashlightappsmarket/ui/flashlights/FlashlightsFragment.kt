@@ -1,5 +1,7 @@
 package com.doganur.flashlightappsmarket.ui.flashlights
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -19,11 +21,28 @@ class FlashlightsFragment : Fragment(R.layout.fragment_flashlights) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         flashlightsAdapter = FlashlightsAdapter()
         binding.rvFlashlights.adapter = flashlightsAdapter
 
-        viewModel.observeFlashlightsLiveData().observe(viewLifecycleOwner) { flashlights ->
-            flashlightsAdapter.submitList(flashlights)
+
+        flashlightsAdapter.onFlashLightsProductClick = {
+
+            val intent = requireActivity().packageManager.getLaunchIntentForPackage(it)
+
+            if (intent != null) {
+                startActivity(intent)
+            } else {
+                Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("https://play.google.com/store/apps/details?id=$it")
+                    setPackage("com.android.vending")
+                    startActivity(this)
+                }
+            }
+        }
+
+        viewModel.flashlightsLiveData.observe(viewLifecycleOwner) {
+            flashlightsAdapter.submitList(it)
         }
 
         viewModel.getFlashLights()

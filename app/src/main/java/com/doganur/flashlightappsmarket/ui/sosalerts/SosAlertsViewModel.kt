@@ -12,14 +12,14 @@ import retrofit2.Response
 
 class SosAlertsViewModel : ViewModel() {
 
-    private var sosAlertsLiveData = MutableLiveData<SosAlerts>()
+    val sosAlertsLiveData = MutableLiveData<SosAlerts>()
 
     fun getSosAlerts() {
 
-        RetrofitInstance.api.getSosAlerts().enqueue(object : Callback<SosAlerts>{
+        RetrofitInstance.api.getSosAlerts().enqueue(object : Callback<SosAlerts> {
             override fun onResponse(call: Call<SosAlerts>, response: Response<SosAlerts>) {
-                if (response.body() != null){
-                    val productSosAlerts : SosAlerts? = response.body()
+                if (response.body() != null) {
+                    val productSosAlerts: SosAlerts? = response.body()
                     productSosAlerts?.let {
                         sosAlertsLiveData.value = it
                     }
@@ -33,10 +33,6 @@ class SosAlertsViewModel : ViewModel() {
                 Log.d(" Fail Sos Alerts View Model", t.message.toString())
             }
         })
-    }
-
-    fun observeSosAlertsLiveData() : LiveData<SosAlerts>{
-        return sosAlertsLiveData
     }
 }
 

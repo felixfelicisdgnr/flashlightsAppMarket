@@ -1,150 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.HomeFragment"
-    android:background="#023047">
+    android:background="@drawable/backgroundlight">
 
 
-    <LinearLayout
-        android:id="@+id/llFlashlightsCategories"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@color/uiTwo"
-        android:orientation="vertical"
-        app:cardUseCompatPadding="true"
+    <TextView
+        android:id="@+id/tvHomePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_130sdp"
+        android:fontFamily="@font/myfont"
+        android:gravity="center|start"
+        android:text="@string/home_page_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/llProductCollection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/llColoredLights">
-
-        <TextView
-            android:id="@+id/tvFlashlightsCategories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/myfont"
-            android:text= "@string/flashlights_categories"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_16ssp"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"/>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardFlashlights"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_90sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardUseCompatPadding="true">
-
-            <ImageView
-                android:id="@+id/imgFlashlights"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/uiFour"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/image_home_flashlights_categories"/>
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/llColoredLights"
+        android:id="@+id/llProductCollection"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@color/uiTwo"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_290sdp"
         android:orientation="vertical"
-        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/llFlashlightsCategories" >
+        app:layout_constraintTop_toBottomOf="@id/tvHomePage">
 
-        <TextView
-            android:id="@+id/tvColoredLights"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/imgColoredLights"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/colored_lights_category"
+            android:drawableStart="@drawable/item_colored_lights"
+            android:drawablePadding="@dimen/_8ssp"
             android:fontFamily="@font/myfont"
-            android:text="@string/colored_lights"
+            android:gravity="center|start"
+            android:paddingStart="@dimen/_13ssp"
+            android:paddingEnd="@dimen/_10ssp"
+            android:text="@string/colored_lights_apps"
             android:textColor="@color/white"
-            android:textSize="@dimen/_16ssp"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"/>
+            android:textSize="@dimen/_15ssp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardColoredLights"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/imgSosAlerts"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_90sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardUseCompatPadding="true">
-
-            <ImageView
-                android:id="@+id/imgColoredLights"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/uiFour"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/image_home_colored_lights_categories"/>
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llSosAlerts"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@color/uiTwo"
-        android:orientation="vertical"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/llColoredLights" >
-
-        <TextView
-            android:id="@+id/tvSosAlerts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/sos_alerts_category"
+            android:drawableStart="@drawable/item_sos"
+            android:drawablePadding="@dimen/_8ssp"
             android:fontFamily="@font/myfont"
-            android:text="@string/sos_alerts"
+            android:gravity="center|start"
+            android:paddingStart="@dimen/_13ssp"
+            android:paddingEnd="@dimen/_10ssp"
+            android:text="@string/sos_alerts_apps"
             android:textColor="@color/white"
-            android:textSize="@dimen/_16ssp"
-            android:textStyle="bold"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_16sdp"/>
+            android:textSize="@dimen/_15ssp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardSosAlerts"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/imgFlashlights"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_90sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardUseCompatPadding="true">
-
-            <ImageView
-                android:id="@+id/imgSosAlerts"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/uiFour"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/image_home_sos_alerts_categories"/>
-        </androidx.cardview.widget.CardView>
-
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/flashlights_categories"
+            android:drawableStart="@drawable/item_flashlights"
+            android:drawablePadding="@dimen/_8ssp"
+            android:fontFamily="@font/myfont"
+            android:gravity="center|start"
+            android:paddingStart="@dimen/_13ssp"
+            android:paddingEnd="@dimen/_10ssp"
+            android:text="@string/flashlight_apps"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp" />
     </LinearLayout>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

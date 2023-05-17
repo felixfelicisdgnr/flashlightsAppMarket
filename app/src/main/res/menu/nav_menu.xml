@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn = "navigation_view">
+    tools:showIn="navigation_view">
 
 
-    <group
-        android:checkableBehavior="single" >
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/homeFragment"
             android:icon="@drawable/item_home"
-            android:title="@string/home_page"/>
+            android:title="@string/home_page" />
 
         <item
             android:id="@+id/flashlightsFragment"
             android:icon="@drawable/item_flashlights"
-            android:title="@string/flashlights"
-            />
+            android:title="@string/flashlights" />
 
         <item
             android:id="@+id/coloredLightsFragment"
@@ -28,8 +26,7 @@
             android:title="@string/sos_alerts" />
     </group>
 
-    <item
-        android:title="">
+    <item android:title="">
 
         <menu>
             <item

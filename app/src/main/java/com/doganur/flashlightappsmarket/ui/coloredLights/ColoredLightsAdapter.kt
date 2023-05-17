@@ -10,9 +10,10 @@ import com.doganur.flashlightappsmarket.data.model.ColoredLightsItem
 import com.doganur.flashlightappsmarket.databinding.ColoredlightsItemBinding
 
 
-class ColoredLightsAdapter : ListAdapter<ColoredLightsItem, ColoredLightsAdapter.ColoredLightsViewHolder>(ColoredLightsDiff()) {
+class ColoredLightsAdapter :
+    ListAdapter<ColoredLightsItem, ColoredLightsAdapter.ColoredLightsViewHolder>(ColoredLightsDiff()) {
 
-    var onColoredLightsProduct : (ColoredLightsItem) -> Unit = {}
+    var onColoredLightsProductClick: (String) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColoredLightsViewHolder {
         return ColoredLightsViewHolder(ColoredlightsItemBinding.inflate(LayoutInflater.from(parent.context)))
@@ -22,26 +23,41 @@ class ColoredLightsAdapter : ListAdapter<ColoredLightsItem, ColoredLightsAdapter
         holder.bind(getItem(position))
     }
 
+    inner class ColoredLightsViewHolder(private val binding: ColoredlightsItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    inner class ColoredLightsViewHolder(private val binding : ColoredlightsItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(productColoredLights : ColoredLightsItem){
+        fun bind(productColoredLights: ColoredLightsItem) {
 
             with(binding) {
                 tvNameColoredLights.text = productColoredLights.name
-                Glide.with(binding.imgColoredLights).load(productColoredLights.iconUrl).into(binding.imgColoredLights)
+                tvCategoryColoredLights.text = productColoredLights.category
+                tvDownloadValueColoredLights.text = productColoredLights.downloads + " Mn"
+                tvStarValueColoredLights.text = productColoredLights.ratingValue.toString()
+                tvRatingCountColoredLights.text = productColoredLights.ratingCount.toString()
+                Glide.with(binding.imgItemColoredLights).load(productColoredLights.iconUrl)
+                    .into(binding.imgItemColoredLights)
 
-                root.setOnClickListener { onColoredLightsProduct(productColoredLights) }
+                root.setOnClickListener {
+                    onColoredLightsProductClick(
+                        productColoredLights.packageName?: ""
+                    )
+                }
             }
         }
     }
 
     class ColoredLightsDiff : DiffUtil.ItemCallback<ColoredLightsItem>() {
-        override fun areItemsTheSame(oldItem: ColoredLightsItem, newItem: ColoredLightsItem): Boolean {
-            return false
+        override fun areItemsTheSame(
+            oldItem: ColoredLightsItem,
+            newItem: ColoredLightsItem
+        ): Boolean {
+            return oldItem.packageName == newItem.packageName
         }
 
-        override fun areContentsTheSame(oldItem: ColoredLightsItem, newItem: ColoredLightsItem): Boolean {
+        override fun areContentsTheSame(
+            oldItem: ColoredLightsItem,
+            newItem: ColoredLightsItem
+        ): Boolean {
             return oldItem == newItem
         }
     }

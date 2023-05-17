@@ -1,35 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_130sdp"
+    android:layout_height="@dimen/_135sdp"
+    app:cardBackgroundColor="@android:color/transparent"
     app:cardCornerRadius="@dimen/_5sdp"
-    app:cardUseCompatPadding="true"
-    android:elevation="@dimen/_2sdp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardElevation="0dp"
+    app:cardUseCompatPadding="true">
+
+
+    <ImageView
+        android:id="@+id/imgItemFlashlights"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:contentDescription="@string/image_flashlights"
+        android:scaleType="centerCrop"
+        android:src="@color/uiOne" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/_230sdp"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imgFlashlights"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_90sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:scaleType="centerCrop"
-            android:src="@color/uiOne"
-            android:contentDescription="@string/image_flashlights"/>
+        android:layout_marginStart="@dimen/_73sdp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvNameFlashlights"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_5sdp"
-            android:text="@string/testtestestetstetstetstetstteste"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/myfont"
+            android:text="@string/deneme"
             android:textColor="@color/black"
-            android:textSize="@dimen/_15ssp"
-             />
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCategoryFlashlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/myfont"
+            android:text="@string/category"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDownloadValueFlashlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_4ssp"
+            android:fontFamily="@font/myfont"
+            android:text="@string/download"
+            android:textColor="#EB434040"
+            android:textSize="@dimen/_10ssp"
+            app:drawableStartCompat="@drawable/item_download" />
+
+        <TextView
+            android:id="@+id/tvStarValueFlashlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_4ssp"
+            android:fontFamily="@font/myfont"
+            android:text="@string/star"
+            android:textColor="#EB434040"
+            android:textSize="@dimen/_10ssp"
+            app:drawableStartCompat="@drawable/item_star" />
+
+        <TextView
+            android:id="@+id/tvRatingCountFlashlights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_4ssp"
+            android:fontFamily="@font/myfont"
+            android:text="@string/rating_value"
+            android:textColor="#EB434040"
+            android:textSize="@dimen/_10ssp"
+            app:drawableStartCompat="@drawable/score_item" />
 
     </LinearLayout>
 

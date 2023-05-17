@@ -9,11 +9,15 @@ import com.bumptech.glide.Glide
 import com.doganur.flashlightappsmarket.data.model.SosAlertsItem
 import com.doganur.flashlightappsmarket.databinding.SosalertsItemBinding
 
-class SosAlertsAdapter : ListAdapter<SosAlertsItem, SosAlertsAdapter.SosAlertsViewHolder>(SosAlertsDiff()) {
+class SosAlertsAdapter :
+    ListAdapter<SosAlertsItem, SosAlertsAdapter.SosAlertsViewHolder>(SosAlertsDiff()) {
 
-    var onSosAlertsProductClick : (SosAlertsItem) -> Unit = {}
+    var onSosAlertsProductClick: (String) -> Unit = {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SosAlertsAdapter.SosAlertsViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): SosAlertsAdapter.SosAlertsViewHolder {
         return SosAlertsViewHolder(SosalertsItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
@@ -21,23 +25,29 @@ class SosAlertsAdapter : ListAdapter<SosAlertsItem, SosAlertsAdapter.SosAlertsVi
         holder.bind(getItem(position))
     }
 
-    inner class SosAlertsViewHolder(private val binding: SosalertsItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class SosAlertsViewHolder(private val binding: SosalertsItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(productSosAlerts : SosAlertsItem) {
+        fun bind(productSosAlerts: SosAlertsItem) {
 
             with(binding) {
                 tvNameSosAlerts.text = productSosAlerts.name
+                tvCategorySosAlerts.text = productSosAlerts.category
+                tvDownloadValueSosAlerts.text = productSosAlerts.downloads + " Mn"
+                tvStarValueSosAlerts.text = productSosAlerts.ratingValue.toString()
+                tvRatingCountSosAlerts.text = productSosAlerts.ratingCount.toString()
 
-                Glide.with(binding.imgSosAlerts).load(productSosAlerts.iconUrl).into(binding.imgSosAlerts)
+                Glide.with(binding.imgItemSosAlerts).load(productSosAlerts.iconUrl)
+                    .into(binding.imgItemSosAlerts)
 
-                root.setOnClickListener { onSosAlertsProductClick(productSosAlerts) }
+                root.setOnClickListener { onSosAlertsProductClick(productSosAlerts.packageName?: "") }
             }
         }
     }
 
     class SosAlertsDiff : DiffUtil.ItemCallback<SosAlertsItem>() {
         override fun areItemsTheSame(oldItem: SosAlertsItem, newItem: SosAlertsItem): Boolean {
-            return false
+            return oldItem.packageName == newItem.packageName
         }
 
         override fun areContentsTheSame(oldItem: SosAlertsItem, newItem: SosAlertsItem): Boolean {

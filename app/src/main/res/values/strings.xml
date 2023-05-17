@@ -9,8 +9,8 @@
     <string name="sos_alerts">SOS Alerts</string>
     <string name="flashlights">Flashlights</string>
     <string name="logout">Logout</string>
-    <string name="flashlight_apps">Flashlight Apps</string>
-    <string name="homepage">Homepage</string>
+    <string name="flashlight_apps">Flashlıght Apps</string>
+    <string name="home_page_title">HOME PAGE</string>
     <string name="home_page">Home Page</string>
     <string name="deneme">deneme</string>
     <string name="testtestestetstetstetstetstteste">testtestestetstetstetstetstteste</string>
@@ -19,4 +19,13 @@
     <string name="image_home_flashlights_categories">Image Home Flashlights Categories</string>
     <string name="image_home_colored_lights_categories">Image Home Colored Lights Categories</string>
     <string name="image_home_sos_alerts_categories">Image Home Sos Alerts Categories</string>
+    <string name="sos_alerts_category">SOS Alerts Category</string>
+    <string name="colored_lights_category">Colored Lights Category</string>
+    <string name="colored_lights_apps">Colored Lıghts Apps</string>
+    <string name="sos_alerts_apps">SOS Alerts Apps</string>
+    <string name="download">Download</string>
+    <string name="star">Star</string>
+    <string name="rating_value">Rating Value</string>
+    <string name="category">Category</string>
+    <string name="downloads_format">%s Mn</string>
 </resources>
