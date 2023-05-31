@@ -3,8 +3,8 @@ package com.doganur.flashlightappsmarket.ui.coloredLights
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import com.doganur.flashlightappsmarket.data.model.ColoredLightsItem
 import com.doganur.flashlightappsmarket.databinding.ColoredlightsItemBinding
@@ -39,7 +39,7 @@ class ColoredLightsAdapter :
 
                 root.setOnClickListener {
                     onColoredLightsProductClick(
-                        productColoredLights.packageName?: ""
+                        productColoredLights.packageName ?: ""
                     )
                 }
             }
@@ -48,15 +48,13 @@ class ColoredLightsAdapter :
 
     class ColoredLightsDiff : DiffUtil.ItemCallback<ColoredLightsItem>() {
         override fun areItemsTheSame(
-            oldItem: ColoredLightsItem,
-            newItem: ColoredLightsItem
+            oldItem: ColoredLightsItem, newItem: ColoredLightsItem
         ): Boolean {
             return oldItem.packageName == newItem.packageName
         }
 
         override fun areContentsTheSame(
-            oldItem: ColoredLightsItem,
-            newItem: ColoredLightsItem
+            oldItem: ColoredLightsItem, newItem: ColoredLightsItem
         ): Boolean {
             return oldItem == newItem
         }

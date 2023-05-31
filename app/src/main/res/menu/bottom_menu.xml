@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    >
 
-
-    <group android:checkableBehavior="single">
         <item
             android:id="@+id/homeFragment"
             android:icon="@drawable/item_home"
@@ -13,28 +10,17 @@
         <item
             android:id="@+id/flashlightsFragment"
             android:icon="@drawable/item_flashlights"
-            android:title="@string/flashlights" />
+            android:title="@string/flashlights_page" />
 
         <item
             android:id="@+id/coloredLightsFragment"
             android:icon="@drawable/item_colored_lights"
-            android:title="@string/colored_lights" />
+            android:title="@string/colored_lights_page"
+
+            />
 
         <item
             android:id="@+id/sosAlertsFragment"
             android:icon="@drawable/item_sos"
-            android:title="@string/sos_alerts" />
-    </group>
-
-    <item android:title="">
-
-        <menu>
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/item_logout"
-                android:title="@string/logout" />
-        </menu>
-    </item>
-
-
+            android:title="@string/sos_alerts_page" />
 </menu>

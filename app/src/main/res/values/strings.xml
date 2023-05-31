@@ -28,4 +28,7 @@
     <string name="rating_value">Rating Value</string>
     <string name="category">Category</string>
     <string name="downloads_format">%s Mn</string>
+    <string name="flashlights_page">Flashlights Page</string>
+    <string name="colored_lights_page">Colored Lights Page</string>
+    <string name="sos_alerts_page">SOS Alerts Page</string>
 </resources>
