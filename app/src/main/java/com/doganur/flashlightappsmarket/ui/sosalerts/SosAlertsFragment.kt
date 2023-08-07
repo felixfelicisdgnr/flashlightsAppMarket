@@ -41,7 +41,6 @@ class SosAlertsFragment : Fragment(R.layout.fragment_sos_alerts) {
         viewModel.sosAlertsLiveData.observe(viewLifecycleOwner){
             sosAlertsAdapter.submitList(it)
         }
-
         viewModel.getSosAlerts()
     }
 }

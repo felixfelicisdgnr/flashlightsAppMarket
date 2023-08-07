@@ -17,7 +17,6 @@ object RetrofitInstance {
         }
         .build()
 
-
     val api: ProductService by lazy {
 
         Retrofit.Builder()
@@ -26,6 +25,5 @@ object RetrofitInstance {
             .client(okHttpClient)
             .build()
             .create(ProductService::class.java)
-
     }
 }

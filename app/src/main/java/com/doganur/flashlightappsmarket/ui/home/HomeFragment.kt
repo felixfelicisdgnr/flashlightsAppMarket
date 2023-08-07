@@ -7,39 +7,25 @@ import androidx.navigation.fragment.findNavController
 import com.doganur.flashlightappsmarket.R
 import com.doganur.flashlightappsmarket.common.viewBinding
 import com.doganur.flashlightappsmarket.databinding.FragmentHomeBinding
+import com.doganur.flashlightappsmarket.ui.activities.MainActivity
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        onFlashlightsClick()
-        onColoredLightsClick()
-        onSosAlertsClick()
-
-    }
-
-    private fun onFlashlightsClick() {
-        binding.imgFlashlights.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToFlashlightsFragment()
-            findNavController().navigate(action)
-        }
-    }
-
-    private fun onColoredLightsClick() {
-        binding.imgColoredLights.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToColoredLightsFragment()
-            findNavController().navigate(action)
-        }
-    }
-
-    private fun onSosAlertsClick() {
-        binding.imgSosAlerts.setOnClickListener {
-            val action = HomeFragmentDirections.actionHomeFragmentToSosAlertsFragment()
-            findNavController().navigate(action)
+        with(binding) {
+            imgSosAlerts.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSosAlertsFragment())
+            }
+            imgColoredLights.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToColoredLightsFragment())
+            }
+            imgFlashlights.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToFlashlightsFragment())
+            }
         }
     }
 }

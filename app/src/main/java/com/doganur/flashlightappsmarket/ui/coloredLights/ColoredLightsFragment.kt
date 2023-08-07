@@ -44,6 +44,5 @@ class ColoredLightsFragment : Fragment(R.layout.fragment_colored_lights) {
         }
 
         viewModel.getColoredLights()
-
     }
 }

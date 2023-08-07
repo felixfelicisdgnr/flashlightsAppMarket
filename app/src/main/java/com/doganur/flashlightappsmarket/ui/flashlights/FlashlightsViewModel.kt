@@ -14,7 +14,6 @@ class FlashlightsViewModel : ViewModel() {
     val flashlightsLiveData = MutableLiveData<Flashlights>()
 
     fun getFlashLights() {
-
         RetrofitInstance.api.getFlashlights().enqueue(object : Callback<Flashlights> {
             override fun onResponse(call: Call<Flashlights>, response: Response<Flashlights>) {
                 if (response.body() != null) {
@@ -22,16 +21,13 @@ class FlashlightsViewModel : ViewModel() {
                     productFlashlights?.let {
                         flashlightsLiveData.value = it
                     }
-
                 } else {
                     return
                 }
             }
-
             override fun onFailure(call: Call<Flashlights>, t: Throwable) {
                 Log.d("Fail Flashlights View Model", t.message.toString())
             }
         })
     }
-
 }

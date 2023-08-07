@@ -22,7 +22,6 @@ class SosAlertsViewModel : ViewModel() {
                     productSosAlerts?.let {
                         sosAlertsLiveData.value = it
                     }
-
                 } else {
                     return
                 }

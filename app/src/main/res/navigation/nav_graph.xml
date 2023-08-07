@@ -8,13 +8,22 @@
         android:id="@+id/coloredLightsFragment"
         android:name="com.doganur.flashlightappsmarket.ui.coloredLights.ColoredLightsFragment"
         android:label="fragment_colored_lights"
-        tools:layout="@layout/fragment_colored_lights" />
+        tools:layout="@layout/fragment_colored_lights" >
+        <action
+            android:id="@+id/action_coloredLightsFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/sosAlertsFragment"
         android:name="com.doganur.flashlightappsmarket.ui.sosalerts.SosAlertsFragment"
         android:label="fragment_sos_alerts"
-        tools:layout="@layout/fragment_sos_alerts" />
+        tools:layout="@layout/fragment_sos_alerts" >
+
+        <action
+            android:id="@+id/action_sosAlertsFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/flashlightsFragment"
@@ -22,13 +31,17 @@
         android:label="fragment_flashlights"
         tools:layout="@layout/fragment_flashlights">
 
+        <action
+            android:id="@+id/action_flashlightsFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.doganur.flashlightappsmarket.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_home"
+        >
 
         <action
             android:id="@+id/action_homeFragment_to_sosAlertsFragment"
@@ -39,7 +52,6 @@
         <action
             android:id="@+id/action_homeFragment_to_coloredLightsFragment"
             app:destination="@id/coloredLightsFragment" />
-
 
     </fragment>
 

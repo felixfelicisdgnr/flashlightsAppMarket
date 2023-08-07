@@ -14,5 +14,4 @@ interface ProductService {
 
     @GET("sosalerts")
     fun getSosAlerts(): Call<SosAlerts>
-
 }

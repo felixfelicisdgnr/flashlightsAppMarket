@@ -21,10 +21,9 @@ class FlashlightsFragment : Fragment(R.layout.fragment_flashlights) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         flashlightsAdapter = FlashlightsAdapter()
-        binding.rvFlashlights.adapter = flashlightsAdapter
 
+        binding.rvFlashlights.adapter = flashlightsAdapter
 
         flashlightsAdapter.onFlashLightsProductClick = {
 
@@ -44,7 +43,6 @@ class FlashlightsFragment : Fragment(R.layout.fragment_flashlights) {
         viewModel.flashlightsLiveData.observe(viewLifecycleOwner) {
             flashlightsAdapter.submitList(it)
         }
-
         viewModel.getFlashLights()
     }
 }
